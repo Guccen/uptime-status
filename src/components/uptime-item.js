@@ -2,12 +2,11 @@ import React, { useMemo } from 'react';
 import htmr from 'htmr';
 import ReactTooltip from 'react-tooltip';
 import UptimeBlock from './uptime-block';
-import Link from './link';
 import { formatDuration } from '../utils/helper';
 
 const UptimeItem = (props) => {
 
-  const { ShowLink, CountDays } = window.Config;
+  const { CountDays } = window.Config;
   const { monitor } = props;
   
   const status = {
@@ -31,7 +30,6 @@ const UptimeItem = (props) => {
       <div className="meta">
         <div className="info">
           <span className="name">{htmr(monitor.name)}</span>
-          {ShowLink && <Link className="link" to={monitor.url} text={htmr(monitor.name)} />}
         </div>
         <div className={`status ${monitor.status}`}>{status[monitor.status]}</div>
       </div>
